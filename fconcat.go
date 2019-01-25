@@ -32,6 +32,8 @@ func Concat(urls []string) (string, error) {
 		return "", err
 	}
 
+	fmt.Println("outputFile:", outputFile)
+
 	return outputFile, nil
 }
 

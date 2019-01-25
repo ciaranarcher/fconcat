@@ -22,7 +22,7 @@ var urlsThree = []string{
 }
 
 func TestConcat(t *testing.T) {
-	fName, err := fconcat.Concat(urlsTwo)
+	fName, err := fconcat.Concat(urlsThree)
 
 	if err != nil {
 		t.Error("unable to concatenate files: ", err)
@@ -38,8 +38,10 @@ func TestConcat(t *testing.T) {
 		t.Error("unable to get info about concatenated file.")
 	}
 
-	if fi.Size() != 625372 {
-		t.Error("size incorrect")
+	expectedSize := int64(870192)
+
+	if fi.Size() != expectedSize {
+		t.Error(fmt.Sprintf("byte size incorrect: expected %d and got %d", expectedSize, fi.Size()))
 	}
 }
 
