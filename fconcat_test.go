@@ -1,20 +1,24 @@
 package fconcat_test
 
 import (
+	"fmt"
 	"os"
 	"testing"
 
 	"github.com/ciaranarcher/fconcat"
 )
 
+var bucket = os.Getenv("BUCKET")
+
 var urlsTwo = []string{
-	"https://s3-us-west-2.amazonaws.com/labday-eocarroll-nagius/123/call_recordings/123/leg_recordings/one.mp3",
-	"https://s3-us-west-2.amazonaws.com/labday-eocarroll-nagius/123/call_recordings/123/leg_recordings/two.mp3",
+	fmt.Sprintf("%s/one.mp3", bucket),
+	fmt.Sprintf("%s/two.mp3", bucket),
 }
 
 var urlsThree = []string{
-	"https://s3-us-west-2.amazonaws.com/labday-eocarroll-nagius/123/call_recordings/123/leg_recordings/one.mp3",
-	"https://s3-us-west-2.amazonaws.com/labday-eocarroll-nagius/123/call_recordings/123/leg_recordings/two.mp3",
+	fmt.Sprintf("%s/one.mp3", bucket),
+	fmt.Sprintf("%s/two.mp3", bucket),
+	fmt.Sprintf("%s/three.mp3", bucket),
 }
 
 func TestConcat(t *testing.T) {
